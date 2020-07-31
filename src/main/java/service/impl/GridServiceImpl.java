@@ -29,7 +29,7 @@ public class GridServiceImpl implements GridService {
         }
     }
 
-    public Grid generateGridX(Grid grid, Position position) {
+    public Grid nextGeneration(Grid grid, Position position) {
         int neighbours;
         Grid newGrid = copyGrid(grid);
 

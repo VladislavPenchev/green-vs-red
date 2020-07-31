@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public interface GridService {
 
-    Grid generateGridX(Grid grid, Position position);
+    Grid nextGeneration(Grid grid, Position position);
 
     void generateGrid(Grid grid) throws IOException;
 }

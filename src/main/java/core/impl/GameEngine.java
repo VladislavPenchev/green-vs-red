@@ -54,7 +54,7 @@ public class GameEngine implements Engine {
 
                 int sumOfGreenGenerations = 0;
                 for(int turn = 1; turn <= turns; turn++) {
-                    grid = gridService.generateGridX(grid, position);
+                    grid = gridService.nextGeneration(grid, position);
                     sumOfGreenGenerations += grid.getGrid()[position.getX()][position.getY()];
 
                     consoleWriter.writeLine(String.format("Grid - %d", turn));
