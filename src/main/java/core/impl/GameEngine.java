@@ -22,7 +22,7 @@ public class GameEngine implements Engine {
     public GameEngine(InputReader consoleReader, OutputWriter consoleWriter) {
         this.consoleReader = consoleReader;
         this.consoleWriter = consoleWriter;
-        this.gridService = new GridServiceImpl(consoleReader);
+        this.gridService = new GridServiceImpl();
         this.isStarted = true;
     }
 
@@ -39,7 +39,7 @@ public class GameEngine implements Engine {
                 }
 
                 Grid grid = new Grid(rowsAndCols.get(0), rowsAndCols.get(1));
-                gridService.generateGrid(grid);
+                gridService.generateGrid(grid, consoleReader.readGrid(grid.getXSize()));
 
                 String positionAndTurnArgs = consoleReader.readLine();
                 List<Integer> positions = SplitterUtil.splitPositionArgs(positionAndTurnArgs);

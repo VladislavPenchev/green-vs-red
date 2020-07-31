@@ -21,12 +21,14 @@ public class SplitterUtil {
     /**
      * Split argument by regex ""
      *
-     * @param rowArgs contains all elements in this row
-     * @return {@code List<Integer>} collection with all elements.
+     * @param rowArgs collection contains all rows as string
+     * @return {@code List<Integer[]>} collection with all rows elements as Array of integers
      */
-    public static List<Integer> splitRowArgs(String rowArgs) {
-        return Arrays.stream(rowArgs.split(""))
-                .map(Integer::parseInt)
+    public static List<Integer[]> splitRowArgs(List<String> rowArgs) {
+        return rowArgs.stream()
+                .map(row -> Arrays.stream(row.split(""))
+                        .map(Integer::parseInt)
+                        .toArray(Integer[]::new))
                 .collect(Collectors.toUnmodifiableList());
     }
 
